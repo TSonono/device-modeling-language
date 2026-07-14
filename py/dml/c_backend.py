@@ -1740,6 +1740,7 @@ def generate_deinit(device):
     out('} else {\n', preindent=-1, postindent=1)
     # Let the posted event deallocate the immediate after state
     out('_dev->_immediate_after_state->deleted = true;\n')
+    out('_DML_free_qname_cache(&_dev->_qname_cache);\n')
     out('}\n', preindent = -1)
 
     out('}\n\n', preindent = -1)
